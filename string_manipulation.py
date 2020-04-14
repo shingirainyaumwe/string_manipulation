@@ -84,7 +84,7 @@ class Word():
 
         return result
 
-    # Capitalize ever instance of the target within the string
+    # Capitalize every instance of the target within the string
     def capitalize_letter(self, target):
         letters = [["a","A"],
                     ["b","B"],
