@@ -10,6 +10,7 @@ Here are the functions included in the library:
   Example: Word("hello world").length()
   output: 11
 
+
 2. split - splits a string into either an array of letters or words depending on your specification.
 
   Example (Split string into individual letters):
@@ -25,15 +26,18 @@ Here are the functions included in the library:
   Word("hello,world").split(1, ",")
   output: ['hello', 'world']
   
+  
 3. reverse - reverses a strng.
 
   Example: Word("hello world").reverse()
   output: dlrow olleh
   
+  
 4. delete - deletes all matched instances of the target string.
   
   Example: Word("hello world").delete('h')
   output: ello world
+  
   
 5. capitalize letter - capitalizes all instances of a the target letter of a string returns a capital letter only for the specified target.
 
@@ -44,6 +48,7 @@ Here are the functions included in the library:
   Example (Return capital letter of target only):
   Word("hello world").capitalize_letter('h', 1)
   output: H
+
 
 6. capitalize - capitalizes string.
 
@@ -58,6 +63,7 @@ Here are the functions included in the library:
   Example: (Capitalizes all letters)
   Word("hello world").capitalize(2)
   output: HELLO WORLD
+
 
 7. compare - returns the percentage by which two strings match.
 
