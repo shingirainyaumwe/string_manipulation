@@ -85,7 +85,7 @@ class Word():
         return result
 
     # Capitalize every instance of the target within the string
-    def capitalize_letter(self, target):
+    def capitalize_letter(self, target, type=0):
         letters = [["a","A"],
                     ["b","B"],
                     ["c","C"],
@@ -112,10 +112,29 @@ class Word():
                     ["x","X"],
                     ["y","Y"],
                     ["z","Z"]]
+                    
+        
+        if type == 0:
+            capital_letter = ""
+            position = 0
+            string_list = Word(self.str).split()
 
-        for letter in letters:
-            if letter[0] == target:
-                return letter[1]
+            for letter in letters:
+                if letter[0] == target:
+                    capital_letter = letter[1]
+
+            for letter in string_list:
+                if letter == target:
+                    string_list[position] = capital_letter
+                position += 1
+
+            return "".join(string_list)
+                    
+
+        if type == 1:
+            for letter in letters:
+                if letter[0] == target:
+                    return letter[1]
 
     def capitalize(self, type=0):
         word = Word(self.str)
@@ -124,17 +143,17 @@ class Word():
 
         # Capitalize first letter only
         if type == 0:
-            return word.capitalize_letter(self.str[0]) + self.str[1:]
+            return word.capitalize_letter(self.str[0], 1) + self.str[1:]
 
         # Capitalize every first letter of each word
         if type == 1:
 
             for letter in letters:
                 if position == 0:
-                    letters[0] = word.capitalize_letter(letter)
+                    letters[0] = word.capitalize_letter(letter, 1)
 
                 if position > 0 and letters[position - 1] == ' ':
-                    letters[position] = word.capitalize_letter(letter)
+                    letters[position] = word.capitalize_letter(letter, 1)
 
                 position += 1
             return "".join(letters)
@@ -144,7 +163,7 @@ class Word():
             
             for letter in letters:
                 if letter != ' ':
-                    letters[position] = word.capitalize_letter(letter)
+                    letters[position] = word.capitalize_letter(letter, 1)
                 position += 1
             
             return "".join(letters)
