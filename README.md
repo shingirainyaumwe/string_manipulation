@@ -1,2 +1,2 @@
 # string_manipulation
-String Manipulation library for python
+String Manipulation library for Python
