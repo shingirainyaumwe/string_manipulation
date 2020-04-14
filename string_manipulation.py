@@ -185,11 +185,13 @@ class Word():
                     total += 1
                 else: 
                     total_letters = 0
+                    letter_position = 0
                     letters_list = Word(target[position].lower()).split()
                     for letter in letters_list:
-                        if letter == Word(string.lower()).split()[position]:
+                        if letter == Word(string.lower()).split()[letter_position]:
                             total_letters += 1
-                    
+                    letter_position += 1
+
                     total += total_letters/len(letters_list)
                 
 
