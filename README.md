@@ -77,7 +77,9 @@ Here are the functions included in the library:
   output: HELLO WORLD
 
 
-`compare()` - returns the percentage by which two strings match.
+## compare()
+
+`returns the percentage by which two strings match.`
 
   Example: Word("hello world").compare("hello")
   output: 50
