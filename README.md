@@ -5,13 +5,13 @@ This is a basic String Manipulation library I wrote for fun.
 
 Here are the functions included in the library:
 
-1. length - return the length of a string
+`length` - return the length of a string
 
   Example: Word("hello world").length()
   output: 11
 
 
-2. split - splits a string into either an array of letters or words depending on your specification.
+`split()` - splits a string into either an array of letters or words depending on your specification.
 
   Example (Split string into individual letters):
   Word("hello world").split()
@@ -27,19 +27,19 @@ Here are the functions included in the library:
   output: ['hello', 'world']
   
   
-3. reverse - reverses a strng.
+`reverse` - returns a reversed strng.
 
-  Example: Word("hello world").reverse()
+  Example: Word("hello world").reverse
   output: dlrow olleh
   
   
-4. delete - deletes all matched instances of the target string.
+`delete()` - deletes all matched instances of the target string.
   
   Example: Word("hello world").delete('h')
   output: ello world
   
   
-5. capitalize letter - capitalizes all instances of a the target letter of a string returns a capital letter only for the specified target.
+`capitalize_letter()` - capitalizes all instances of a the target letter of a string returns a capital letter only for the specified target.
 
   Example (Capitalize all matching instances of target letter):
   Word("hello world").capitalize_letter('o')
@@ -50,7 +50,7 @@ Here are the functions included in the library:
   output: H
 
 
-6. capitalize - capitalizes string.
+`capitalize()` - capitalizes string.
 
   Example (Capitalizes first letter only):
   Word("hello world").capitalize()
@@ -65,7 +65,7 @@ Here are the functions included in the library:
   output: HELLO WORLD
 
 
-7. compare - returns the percentage by which two strings match.
+`compare()` - returns the percentage by which two strings match.
 
   Example: Word("hello world").compare("hello")
   output: 50

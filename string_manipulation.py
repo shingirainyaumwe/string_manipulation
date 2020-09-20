@@ -5,9 +5,9 @@ class Word():
     def __init__(self, str):
         self.str = str
 
+    @property
     def length(self):
         total = 0
-
         for letter in self.str:
             total += 1
         
@@ -15,10 +15,9 @@ class Word():
     
     # Split string into array
     def split(self, type=0, key=" "):
-        str_list = []
-        position = 0
+        str_list, position = [], 0
 
-        # SPlit every letter of the string into an array
+        # Split every letter of the string into an array
         if type == 0:
             for letter in self.str:
                 str_list.append(letter)
@@ -33,7 +32,7 @@ class Word():
                     current_word = []
                 else:
                     current_word.append(letter)
-                    if position == word.length() - 1:
+                    if position == word.length - 1:
                         str_list.append("".join(current_word))
 
                 position += 1
@@ -41,12 +40,12 @@ class Word():
         return str_list
 
     # Reverses the string
+    @property
     def reverse(self):
         # Iterative
-        
+
         reversed_str = []
-        str_len = len(self.str) - 1
-        position = 0
+        str_len, position = len(self.str) - 1, 0
         
         for letter in self.str:
             reversed_str.append(self.str[str_len - position])
@@ -59,30 +58,41 @@ class Word():
         # if self.str == "":
         #     return self.str
         # else:
-        #     return Word(self.str[1:]).reverse() + self.str[0]
+        #     return Word(self.str[1:]).reverse + self.str[0]
 
     # Delete every matching instance of the target arguement
     def delete(self, target):
-        letters = Word(self.str).split()
+        letters, words = Word(self.str).split(), Word(self.str).split(1)
         target = str(target)
-        position = 0
+        word_position, letter_position = 0, 0
 
-        for letter in letters:
-            if letter == target:
-                letters[position] = ""
+        if len(target) > 1:
+            for position, word in enumerate(words):
+                if word == target:
+                    del words[position]
 
-            position += 1
+                word_position += 1
 
-        return "".join(letters)
+            result = " ".join(words)
+        else:
+            for position, letter in enumerate(letters):
+                if letter in target:
+                    del letters[position]
 
-    # Checks if string is a palindrome
-    def is_palindrome(self):
-        result = False
+                letter_position += 1
 
-        if Word(self.str).reverse() == self.str:
-            result = True
+            result = "".join(letters)
 
         return result
+
+    # Checks if string is a palindrome
+    @property
+    def is_palindrome(self):
+        if Word(self.str).reverse == self.str:
+            return True
+            
+        return False
+
 
     # Capitalize every instance of the target within the string
     def capitalize_letter(self, target, type=0):
@@ -170,10 +180,9 @@ class Word():
 
     def compare(self, default_text=""):
         if default_text != "":
-            score = 0
-            position = 0
-            total = 0
-            if Word(self.str).length() >= Word(default_text).length():
+            score, position, total = 0, 0, 0
+            
+            if Word(self.str).length >= Word(default_text).length:
                 target = Word(self.str).split(1)
                 default_text = Word(default_text).split(1)
             else:
@@ -204,4 +213,4 @@ class Word():
 
             return score
         else:
-            return None
+            return
